@@ -1,10 +1,9 @@
 import React from "react";
-import GatosRandom from "../components/Gatos/GatosRandom";
 
 const Home = () => {
   return (
     <div>
-      <GatosRandom />
+      <h1>Home</h1>
     </div>
   );
 };

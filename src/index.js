@@ -4,6 +4,7 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  // StrictMode es una herramienta que ayuda a destacar problemas potenciales.
   <React.StrictMode>
     <App />
   </React.StrictMode>

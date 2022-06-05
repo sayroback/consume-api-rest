@@ -1,36 +1,27 @@
-import "./GatosRandom.css";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useContext } from "react";
+import { GatosContext } from "./Api/GatosContext";
 
 const UIGatosRandom = () => {
-  const API_URL =
-    "https://api.thecatapi.com/v1/images/search?limit=2&api_key=b1b67bb3-65f4-42f9-9393-082a1bb5f0d3";
-  const [gatosRandom, setGatosRandom] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(API_URL);
-      const data = await res.json();
-      setGatosRandom(data);
-    }
-    fetchData();
-    console.log(gatosRandom);
-  }, []);
+  const { gatosRandom, getGatosRandom, saveFavGatos } =
+    useContext(GatosContext);
 
   return (
-    <>
+    <section>
+      <h1>Gatos Random</h1>
+      <button onClick={() => getGatosRandom()}>Mas gatos</button>
       <div>
         {gatosRandom.map((gatoRandom, key) => {
           return (
-            <img
-              key={gatoRandom.id}
-              className="imageGato"
-              src={gatoRandom.url}
-              alt="Gatito"
-            />
+            <div key={gatoRandom.id}>
+              <img className="imageGato" src={gatoRandom.url} alt="Gatito" />
+              <button onClick={() => saveFavGatos(gatoRandom.id)}>
+                Guardar gato
+              </button>
+            </div>
           );
         })}
       </div>
-    </>
+    </section>
   );
 };
 

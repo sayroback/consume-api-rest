@@ -5,6 +5,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import NavBar from "./components/NavBar";
 import RandM from "./pages/RandM";
 import Personaje from "./components/RickAndMorty/Personaje";
+import Cats from "./pages/Cats";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cats" element={<Cats />} />
         <Route path="/rickandmorty" element={<RandM />} />
         <Route path="/rickandmorty/personaje/:id" element={<Personaje />} />
 

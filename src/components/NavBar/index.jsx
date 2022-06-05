@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 const NavBar = () => {
   return (
-    <div>
+    <header>
       <ul>
         <li>
           <NavLink
             className={({ isActive }) => (isActive ? "active" : "")}
-            to="/"
+            to="/cats"
           >
-            Home
+            Gatos
           </NavLink>
         </li>
         <li>
@@ -22,7 +22,7 @@ const NavBar = () => {
           </NavLink>
         </li>
       </ul>
-    </div>
+    </header>
   );
 };
 
