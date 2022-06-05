@@ -1,11 +1,13 @@
 import React, { createContext } from "react";
 import { FavGatos } from "./func/FavGatos";
 import { GetGatos } from "./func/GetGatos";
+import { SendGato } from "./func/SendGato";
 const GatosContext = createContext();
 
 const GatoProvider = (props) => {
   const { gatosRandom, getGatosRandom } = GetGatos();
   const { gatosFavourites, saveFavGatos, deleteFavGatos } = FavGatos();
+  const { enviarGato } = SendGato();
   return (
     <GatosContext.Provider
       value={{
@@ -14,6 +16,7 @@ const GatoProvider = (props) => {
         gatosFavourites,
         saveFavGatos,
         deleteFavGatos,
+        enviarGato,
       }}
     >
       {props.children}
